@@ -1,0 +1,35 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: dev-eks-cluster
+  region: ap-northeast-2
+
+iam:
+  withOIDC: true
+
+vpc:
+  subnets:
+    public:
+      ap-northeast-2a:
+        id: subnet-0c0f53f21f8199394
+      ap-northeast-2b:
+        id: subnet-02b07bc9c59f06967
+    private:
+      ap-northeast-2a:
+        id: subnet-0efb265f24e1d5a6b
+      ap-northeast-2b:
+        id: subnet-0fd7ef4fdef0e61ac
+
+cloudWatch:
+  clusterLogging:
+    enableTypes: ["*"]
+
+fargateProfiles:
+    - name: dev-eks-fargate
+      subnets:
+        - subnet-0efb265f24e1d5a6b
+        - subnet-0fd7ef4fdef0e61ac
+      selectors:
+        - namespace: "*"
+        - namespace: kube-system
