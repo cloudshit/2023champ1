@@ -26,11 +26,11 @@ spec:
           service:
             name: blue
             port:
-              number: 8080
+              number: 80
       - path: /green
         pathType: Prefix
         backend:
           service:
             name: green
             port:
-              number: 8080
+              number: 80
