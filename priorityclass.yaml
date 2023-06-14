@@ -1,0 +1,15 @@
+apiVersion: scheduling.k8s.io/v1
+kind: PriorityClass
+metadata:
+  name: blue-green-priority
+value: 1000000000
+preemptionPolicy: PreemptLowerPriority
+globalDefault: false
+---
+apiVersion: scheduling.k8s.io/v1
+kind: PriorityClass
+metadata:
+  name: default-priority
+value: 500000000
+preemptionPolicy: Never
+globalDefault: true

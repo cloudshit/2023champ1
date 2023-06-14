@@ -14,6 +14,7 @@ spec:
         app: blue
     spec:
       terminationGracePeriodSeconds: 60
+      priorityClassName: blue-green-priority
       containers:
       - name: blue
         image: 790946953677.dkr.ecr.ap-northeast-2.amazonaws.com/blue:latest

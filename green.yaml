@@ -13,6 +13,7 @@ spec:
       labels:
         app: green
     spec:
+      priorityClassName: blue-green-priority
       terminationGracePeriodSeconds: 60
       containers:
       - name: green
